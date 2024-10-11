@@ -26,3 +26,13 @@ class FinanceTracker:
         with open(filename, 'w') as file:
             json.dump(data, file)
         print(f"Transactions saved to {filename}")
+
+    def load_transactions(self, filename):
+        try:
+            with open(filename, 'r') as file:
+                data = json.load(file)
+                self.transactions = [Transaction(d['amount'], d['category'], d['transaction_type']) for d in data]
+                self.balance = sum(t.amount if t.transaction_type == 'income' else -t.amount for t in self.transactions)
+                print(f"Transactions loaded from {filename}")
+        except FileNotFoundError:
+            print(f"No file named {filename} found!")
