@@ -13,3 +13,9 @@ class FinanceTracker:
         elif transaction_type == 'expense':
             self.balance -= amount
         print(f"Transaction added: {transaction_type} of {amount} for {category}")
+
+    def view_transactions(self):
+        print("\nTransaction History")
+        for t in self.transactions:
+            print(f"{t.date} - {t.transaction_type.capitalize()}: ${t.amount} | Category: {t.category}")
+        print(f"\nCurrent Balance: ${self.balance:.2f}\n")
