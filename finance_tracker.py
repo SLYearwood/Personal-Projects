@@ -10,7 +10,7 @@ class FinanceTracker:
         if transaction_type == 'expense' and amount > self.balance:
             print("Not enough balance for this expense!")
             return
-        transaction = Transaction(amount, category, transaction_type)
+        transaction = Transcation(amount, category, transaction_type)
         self.transactions.append(transaction)
         if transaction_type == 'income':
             self.balance += amount
