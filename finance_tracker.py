@@ -1,4 +1,4 @@
-from transaction import Transcation
+from transaction import Transaction
 import json
 
 class FinanceTracker:
@@ -10,7 +10,7 @@ class FinanceTracker:
         if transaction_type == 'expense' and amount > self.balance:
             print("Not enough balance for this expense!")
             return
-        transaction = Transcation(amount, category, transaction_type)
+        transaction = Transaction(amount, category, transaction_type)
         self.transactions.append(transaction)
         if transaction_type == 'income':
             self.balance += amount

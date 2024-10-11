@@ -1,6 +1,6 @@
 from datetime import datetime
 
-class Transcation: 
+class Transaction: 
     def __init__(self, amount, category, transaction_type):
         self.amount = amount
         self.category = category
